@@ -40,7 +40,7 @@ body {
     font-size: 1.8em;
 }
 .main-content .form-control {
-    border-color:rgb(86, 86, 242) ;
+    border-color:rgb(85, 85, 106) ;
 }
 .main-content .form-control::placeholder {
     color: rgb(192, 189, 189);
@@ -53,7 +53,7 @@ body {
         align-items: center;
     }
     .left-content {
-        min-width: 100%;
+        min-height: 100%;
         min-height: 30vh;
         padding: 2em;
     }
