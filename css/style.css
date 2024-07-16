@@ -39,6 +39,9 @@ body {
     color: rgb(86, 86, 242);
     font-size: 1.8em;
 }
+.main-content .form-control::placeholder {
+    color: rgb(192, 189, 189);
+}
 
 @media(max-width: 576px) {
     .form-container{
