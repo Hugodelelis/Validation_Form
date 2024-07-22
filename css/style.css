@@ -43,6 +43,11 @@ body {
 .main-content .form-control::placeholder {
     color: rgb(192, 189, 189);
 }
+.error-text {
+    color: red;
+    font-size: 0.8em;
+    margin-top: 0.5em;
+}
 
 @media(max-width: 576px) {
     .form-container{
