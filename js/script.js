@@ -1,7 +1,7 @@
 class ValidateForm {
     constructor() {
-        this.form =  document.querySelector('#form')
-        this.events()
+        this.form = document.querySelector('#form')
+        this.events()        
     }
 
     events() {
@@ -17,9 +17,15 @@ class ValidateForm {
             errorText.remove();
         }
 
-        let NameValid = this.IsNameValid()
-        let validEmail = this.isEmailValid()
-        let validPassword = this.isPasswordValid()
+        const NameValid = this.IsNameValid()
+        const validEmail = this.isEmailValid()
+        const validPassword = this.isPasswordValid()
+        const validCPF = this.isCpfValid()
+
+        if(NameValid && validEmail && validPassword && validCPF) {
+            alert('Formulário enviado')
+            this.form.submit()
+        }
     }
 
     IsNameValid() {
@@ -28,7 +34,7 @@ class ValidateForm {
         let valid = true
         
 
-        if(secondName.value.length < 3 || !secondName.value.match(/^[a-zA-Z]+$/)) {
+        if(secondName.value.length < 3) {
             this.setError(secondName, 'Sobrenome precisa ter 3 ou mais letras.')
             valid = false
         }
@@ -67,13 +73,27 @@ class ValidateForm {
             valid = false
         }
 
-        if(password.value != confirmPassword.value) {
+        if(password.value !== confirmPassword.value) {
             this.setError(confirmPassword, 'A confirmação de senha déve ser igual a senha.')
         }
 
-        if(confirmPassword.value.length <= 0) {
+        if(password.value.length <= 0) {
             this.setError(confirmPassword, 'Preencha o campo senha.')
         }
+
+        return valid
+    }
+
+    isCpfValid() {
+        const cpf = new ValidCPF(document.querySelector('#cpf').value)
+        let valid = true
+
+        if(!cpf.valid()) {
+            this.setError(document.querySelector('#cpf'), 'CPF inválido')
+            valid = false
+        }
+        
+        return valid
     }
 
     setError(campo, msg) {
@@ -85,4 +105,4 @@ class ValidateForm {
     
 }
 
-const validate = new ValidateForm() 
+const validate = new ValidateForm()
