@@ -106,3 +106,4 @@ class ValidateForm {
 }
 
 const validate = new ValidateForm()
+const mask = new MaskCPF()
